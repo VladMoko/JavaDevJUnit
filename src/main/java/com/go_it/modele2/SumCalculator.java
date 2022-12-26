@@ -5,7 +5,7 @@ public class SumCalculator {
     public int sum(int n) {
         int sum = 1;
         if (n == 0) {
-            throw new IllegalArgumentException("n can't be equals 0");
+            throw new IllegalArgumentException();
         }
         return (n * (n + sum ) / 2);
     }
