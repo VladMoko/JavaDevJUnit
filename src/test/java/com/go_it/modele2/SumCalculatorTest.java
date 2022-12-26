@@ -8,25 +8,27 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 class SumCalculatorTest {
-    private SumCalculator res;
+    private SumCalculator sumCalculator;
 
     @BeforeEach
     public void beforeEach(){
-        res = new SumCalculator();
+        sumCalculator = new SumCalculator();
     }
 
     @Test
-    void sum() {
-        //Test 1
-        int expectedByOne = 1;
-        Assertions.assertEquals(expectedByOne, res.sum(1));
+    void sumWithNumberOne() {
+        int expected = 1;
+        Assertions.assertEquals(expected, sumCalculator.sum(1));
+    }
 
-        //Test 2
-        int expectedBySix = 6;
-        Assertions.assertEquals(expectedBySix, res.sum(3));
+    @Test
+    void sumWithNumberThree(){
+        int expected = 6;
+        Assertions.assertEquals(expected, sumCalculator.sum(3));
+    }
 
-        //Test 3
-        int expectedByNull = 0;
-        assertThrows(IllegalArgumentException.class,() -> Assertions.assertEquals(expectedByNull, res.sum(0)));
+    @Test
+    void sumWithException(){
+        assertThrows(IllegalArgumentException.class, () -> sumCalculator.sum(0));
     }
 }
